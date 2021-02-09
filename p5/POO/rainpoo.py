@@ -1,8 +1,9 @@
 import random
+
 import pygame
-from pygame.math import Vector2
-import core
-from POO.Drop import Drop
+
+from p5 import core
+from p5.POO.Drop import Drop
 
 drops = []
 
@@ -23,20 +24,6 @@ def run():
         d.afficher(core)
 
 
-
-
-def update():
-    print(core.keyPressValue)
-    for drop in drops:
-        drop.y += gravity
-        if drop.y > core.WINDOW_SIZE[1]:
-            drop.x = random.randint(0, core.WINDOW_SIZE[0])
-            drop.y = random.randint(-400,0)
-
-
-def show():
-    for drop in drops:
-        pygame.draw.line(core.screen, (255, 0, 0), (drop.x, drop.y), (drop.x, drop.y + 10), 1)
 
 
 core.main(setup, run)
